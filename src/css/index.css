@@ -1,4 +1,10 @@
 body {
-    background: red;
+    background: #ccc;
     color: #fff;
+}
+#images {
+    width: 200px;
+    height: 200px;
+    background: url('./images/liutong.png') no-repeat;
+    background-size: 200px 200px;
 }
