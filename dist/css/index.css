@@ -1,0 +1,10 @@
+body {
+    background: #ccc;
+    color: #fff;
+}
+#images {
+    width: 200px;
+    height: 200px;
+    background: url(http://localhost:1224/7139be38ebfce23dad66d1aee0d6ad71.png) no-repeat;
+    background-size: 200px 200px;
+}
