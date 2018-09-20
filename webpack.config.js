@@ -32,10 +32,15 @@ module.exports = {
                    {
                         loader: 'url-loader',
                         options: {
-                            limit: 300
+                            limit: 300,
+                            outputPath: 'images/'
                         }
                    }
                ]
+           },
+           {
+               test: /\.(htm|html)$/i,
+               use: ['html-withimg-loader']
            }
         ]
     }, //模块
@@ -48,7 +53,7 @@ module.exports = {
             hash: true, //防止缓存
             template: './src/index.html' //写相对路径
         }),
-        new extractTextPlugin('/css/index.css') //这里的路经的是打包后的css的路径
+        new extractTextPlugin('css/index.css'), //这里的路经的是打包后的css的路径
     ], //插件
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'), //监听dist文件

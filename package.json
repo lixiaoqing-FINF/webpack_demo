@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "server": "webpack-dev-server",
-    "dev": "node_modules/.bin/webpack "
+    "dev": "node_modules/.bin/webpack ",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "html-withimg-loader": "^0.1.16",
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.1",
     "webpack": "^3.6.0",
