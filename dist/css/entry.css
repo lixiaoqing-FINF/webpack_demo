@@ -12,3 +12,7 @@ body {
   height: 100px;
   background: #fff;
 }
+.sass {
+  width: 100px;
+  height: 100px;
+  background: #000; }

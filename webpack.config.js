@@ -52,6 +52,31 @@ module.exports = {
                 })
            },
            {
+               test: /\.scss$/,
+            //    use:[
+            //        {
+            //            loader: 'style-loader'
+            //        },
+            //        {
+            //             loader: 'css-loader'
+            //         },
+            //         {
+            //             loader: 'sass-loader'
+            //         }
+            //    ]
+                use: extractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader: 'sass-loader'
+                        }
+                    ]
+                })
+           },
+           {
                test: /\.(png|jpg|gif)/,
                use: [
                    {
@@ -78,13 +103,13 @@ module.exports = {
             hash: true, //防止缓存
             template: './src/index.html' //写相对路径
         }),
-        //new extractTextPlugin('css/[name].css'), //这里的路经的是打包后的css的路径
-        new extractTextPlugin({ //本来想着分离多个css出来，没成想这样做分离出来的css文件名是引入css的那个js的文件名
-            filename: (getPath) => {
-                return getPath('css/[name].css').replace('css/js', 'css');
-            },
-            allChunks: true
-        })
+        new extractTextPlugin('css/index.css'), //这里的路经的是打包后的css的路径
+        // new extractTextPlugin({ //本来想着分离多个css出来，没成想这样做分离出来的css文件名是引入css的那个js的文件名
+        //     filename: (getPath) => {
+        //         return getPath('css/[name].css').replace('css/js', 'css');
+        //     },
+        //     allChunks: true
+        // })
     ], //插件
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'), //监听dist文件
