@@ -27,20 +27,45 @@ module.exports = {
                 })
            },
            {
+               test: /\.less$/,
+            //    use: [
+            //        {
+            //            loader: 'style-loader'
+            //        },
+            //        {
+            //            loader: 'css-loader',
+            //        },
+            //        {
+            //            loader: 'less-loader'
+            //        }
+            //    ]
+                use: extractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader:'css-loader' 
+                        },
+                        {
+                            loader:'less-loader' 
+                        }
+                    ]
+                })
+           },
+           {
                test: /\.(png|jpg|gif)/,
                use: [
                    {
                         loader: 'url-loader',
                         options: {
                             limit: 300,
-                            outputPath: 'images/'
+                            outputPath: 'images/' //图片打包到images文件夹中
                         }
                    }
                ]
            },
            {
                test: /\.(htm|html)$/i,
-               use: ['html-withimg-loader']
+               use: ['html-withimg-loader'] //打包html里以img标签插入的图片
            }
         ]
     }, //模块
@@ -53,7 +78,13 @@ module.exports = {
             hash: true, //防止缓存
             template: './src/index.html' //写相对路径
         }),
-        new extractTextPlugin('css/index.css'), //这里的路经的是打包后的css的路径
+        //new extractTextPlugin('css/[name].css'), //这里的路经的是打包后的css的路径
+        new extractTextPlugin({ //本来想着分离多个css出来，没成想这样做分离出来的css文件名是引入css的那个js的文件名
+            filename: (getPath) => {
+                return getPath('css/[name].css').replace('css/js', 'css');
+            },
+            allChunks: true
+        })
     ], //插件
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'), //监听dist文件
