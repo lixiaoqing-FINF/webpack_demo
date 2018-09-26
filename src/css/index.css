@@ -7,4 +7,5 @@ body {
     height: 200px;
     background: url('../images/liutong.png') no-repeat;
     background-size: 200px 200px;
+    transform: rotate(45deg);
 }

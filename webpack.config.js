@@ -21,9 +21,10 @@ module.exports = {
            {
                test: /\.css$/,
                //use: ['style-loader', 'css-loader']
+               
                 use: extractTextPlugin.extract({  //用于css分离
                     fallback: "style-loader",
-                    use: "css-loader"
+                    use: ["css-loader", "postcss-loader"]
                 })
            },
            {
