@@ -65,20 +65,29 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_index_css__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__css_index_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_less_less__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_less_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__css_less_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_sass_scss__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_sass_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__css_sass_scss__);
 
 
+var _index = __webpack_require__(1);
 
-document.getElementById('title').innerHTML = 'Hello Webpack! Hello World';
+var _index2 = _interopRequireDefault(_index);
+
+var _less = __webpack_require__(2);
+
+var _less2 = _interopRequireDefault(_less);
+
+var _sass = __webpack_require__(3);
+
+var _sass2 = _interopRequireDefault(_sass);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+{
+    var str = 'Hello Webpack! Hello World';
+    document.getElementById('title').innerHTML = str;
+}
 
 /***/ }),
 /* 1 */

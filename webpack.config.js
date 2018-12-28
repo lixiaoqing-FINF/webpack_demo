@@ -93,6 +93,13 @@ module.exports = {
            {
                test: /\.(htm|html)$/i,
                use: ['html-withimg-loader'] //打包html里以img标签插入的图片
+           },
+           {
+                test: /\.(jsx|js)/,
+                use: {
+                    loader: "babel-loader"
+                },
+                exclude: /node_modules/
            }
         ]
     }, //模块
