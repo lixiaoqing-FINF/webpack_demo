@@ -8,6 +8,7 @@ const website ={
     publicPath: 'http://localhost:1224/'
 }
 module.exports = {
+    devtool: 'eval-source-map',  //开发工具 有四种方式，看项目大小决定
     entry: {
         entry: './src/entry.js',
         entry2: './src/entry2.js'

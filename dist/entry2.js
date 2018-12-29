@@ -69,9 +69,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-alert('morning webpack');
+eval("\n\nalert('morning webpack');//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvZW50cnkyLmpzPzU0YWUiXSwibmFtZXMiOlsiYWxlcnQiXSwibWFwcGluZ3MiOiI7O0FBQUFBLE1BQU0saUJBQU4iLCJmaWxlIjoiNC5qcyIsInNvdXJjZXNDb250ZW50IjpbImFsZXJ0KCdtb3JuaW5nIHdlYnBhY2snKTtcblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gLi9zcmMvZW50cnkyLmpzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///4\n");
 
 /***/ })
 
