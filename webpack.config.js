@@ -4,6 +4,8 @@ const path = require('path'); //引入node的path模块
 const htmlPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const purifycssPLugin = require('purifycss-webpack');
+
+const entry = require('./webpack_config/entry_webpack.js');
 console.log(process.env.type);
 if(process.env.type == "build"){
     var website ={
@@ -17,10 +19,7 @@ if(process.env.type == "build"){
 
 module.exports = {
     devtool: 'eval-source-map',  //开发工具 有四种方式，看项目大小决定
-    entry: {
-        entry: './src/entry.js',
-        entry2: './src/entry2.js'
-    }, //入口
+    entry: entry.path, //入口  进行了模块化
     output: {
         path: path.resolve(__dirname, 'dist'), //生成dist的绝对路径
         filename: '[name].js',
