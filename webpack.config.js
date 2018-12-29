@@ -1,10 +1,10 @@
 const glob = require('glob');
 const path = require('path'); //引入node的path模块
+const webpack = require("webpack");
 //const uglify = require('uglifyjs-webpack-plugin'); //uglifyjs-webpack-plugin是webpack集成的插件，不需要在安装
 const htmlPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const purifycssPLugin = require('purifycss-webpack');
-
 const entry = require('./webpack_config/entry_webpack.js');
 console.log(process.env.type);
 if(process.env.type == "build"){
@@ -110,7 +110,7 @@ module.exports = {
                 exclude: /node_modules/
            }
         ]
-    }, //模块
+    }, 
     plugins: [
         //new uglify()
         new htmlPlugin({
@@ -129,6 +129,11 @@ module.exports = {
         // })
         new purifycssPLugin({
             paths: glob.sync(path.join(__dirname, 'src/*.html'))
+        }),
+
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
         })
 
     ], //插件
