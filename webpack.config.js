@@ -134,7 +134,9 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
-        })
+        }),
+
+        new webpack.BannerPlugin('learn webpack study by jspang')
 
     ], //插件
     devServer: {
