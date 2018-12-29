@@ -6,7 +6,7 @@ body {
 #images {
   width: 200px;
   height: 200px;
-  background: url(http://localhost:1224/images/7139be38ebfce23dad66d1aee0d6ad71.png) no-repeat;
+  background: url(http://cdn.jspang.com/images/7139be38ebfce23dad66d1aee0d6ad71.png) no-repeat;
   background-size: 200px 200px;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);

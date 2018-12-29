@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "server": "webpack-dev-server --open",
-    "dev": "node_modules/.bin/webpack ",
-    "build": "webpack"
+    "start": "node_modules/.bin/webpack ",
+    "build": "export type=build&&webpack",
+    "dev": "export type=dev&&webpack"
   },
   "repository": {
     "type": "git",

@@ -4,9 +4,17 @@ const path = require('path'); //引入node的path模块
 const htmlPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const purifycssPLugin = require('purifycss-webpack');
-const website ={
-    publicPath: 'http://localhost:1224/'
+console.log(process.env.type);
+if(process.env.type == "build"){
+    var website ={
+        publicPath: 'http://cdn.jspang.com/'  //生产环境的地址
+    }
+}else {
+    var website ={
+        publicPath: 'http://localhost:1224/' //开发环境的地址
+    }
 }
+
 module.exports = {
     devtool: 'eval-source-map',  //开发工具 有四种方式，看项目大小决定
     entry: {
