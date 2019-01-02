@@ -5,6 +5,7 @@ const webpack = require("webpack");
 const htmlPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const purifycssPLugin = require('purifycss-webpack');
+const copyPlugin = require('copy-webpack-plugin');
 const entry = require('./webpack_config/entry_webpack.js');
 console.log(process.env.type);
 if(process.env.type == "build"){
@@ -134,15 +135,37 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
+            vue: "vue"
         }),
 
-        new webpack.BannerPlugin('learn webpack study by jspang')
+        new webpack.BannerPlugin('learn webpack study by jspang'),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['jquery', 'vue'],
+            filename: "assets/js/[name].js",
+            minChunks: 2
+        }),
+        new copyPlugin([
+            {
+                from: __dirname + '/src/public',
+                to: './public'
+            }
+        ])
 
     ], //插件
+    resolve: {
+        alias: {
+          'vue': 'vue/dist/vue.esm.js'
+       }
+    },
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'), //监听dist文件
         host: 'localhost', //建议写本机的ip地址
         compress: true, //服务端是否压缩
         port: 1224 //配置端口号（随便配）
-    } //服务
+    }, //服务
+    watchOptions: {
+        poll: 1000,   //检测修改时间 以毫秒为单位
+        aggregateTimeout: 500,   //防止重复保存而发生重复编译错误。这里设置的500是半秒内重复保存，不进行打包操作 
+        ignore: /node_modules/   //不监听的目录
+    }
 }
