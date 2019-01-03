@@ -109,7 +109,11 @@ module.exports = {
                     loader: "babel-loader"
                 },
                 exclude: /node_modules/
-           }
+           },
+           {
+                test: /\.json$/,
+                use: 'json-loader'
+            }
         ]
     }, 
     plugins: [
@@ -135,7 +139,7 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
-            vue: "vue"
+            //vue: "vue"
         }),
 
         new webpack.BannerPlugin('learn webpack study by jspang'),
